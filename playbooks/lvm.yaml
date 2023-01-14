@@ -1,0 +1,15 @@
+---
+- hosts: node-01
+  become: yes
+  tasks:
+    - name: create volume group
+      lvg:
+        pvs: /dev/nvme1n1p1,/dev/nvme2n1p1
+        vg: vg_ansible
+        state: present
+    - name: create logical volue
+      lvol:
+       vg: vg_ansible
+       lv: lv_ansible
+       size: 512m
+       state: present

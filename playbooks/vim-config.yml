@@ -1,3 +1,6 @@
+---
+# font: https://www.redhat.com/sysadmin/ansible-configure-vim
+# I did some adjustment to instal powerline-fonts and fzf, I put to download direct from the internet and changed the module to dnf
 - name: Config Vim with plugins
   hosts: localhost
   gather_facts: yes
@@ -58,6 +61,12 @@
         url: https://github.com/tpope/vim-fugitive
       - name: vim-floaterm
         url: https://github.com/voldikss/vim-floaterm
+      - name: indentLine
+        url: https://github.com/Yggdroot/indentLine
+      - name: vim-yaml-folds
+        url: https://github.com/pedrohdz/vim-yaml-folds
+      - name: ALE
+        url: https://github.com/dense-analysis/ale
 
     - name: Ensure .vimrc config in place
       copy:

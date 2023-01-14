@@ -1,0 +1,17 @@
+---
+- hosts: node-01
+  become: yes
+
+  tasks:
+    - name: Create partition
+      parted:
+        device: " {{ item }} "
+        number: 1
+        state: present
+        part_end: 1GiB
+        label: gpt
+        flags: [ lvm ] 
+      loop:
+        - /dev/nvme1n1
+        - /dev/nvme2n1
+              

@@ -1,6 +1,0 @@
----
-- hosts: node-01
-  become: yes
-
-  tasks:
-          - name: Create partition
