@@ -1,0 +1,8 @@
+---
+- hosts: node-01
+  become: yes
+  tasks:
+    - name: create ext4 files system on logical volume
+      filesystem:
+        fstype: ext4
+        dev: /dev/mapper/vg_ansible-lv_ansible
