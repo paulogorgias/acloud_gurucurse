@@ -6,3 +6,10 @@
       filesystem:
         fstype: ext4
         dev: /dev/mapper/vg_ansible-lv_ansible
+    - name: mount filesystem
+      mount:
+        path: /mnt/test_mount
+        src: /dev/mapper/vg_ansible-lv_ansible
+        fstype: ext4
+        state: mounted
+        backup: yes
